@@ -1,3 +1,4 @@
+import 'package:aprendendoflutter/app_controller.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,7 +12,6 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   int counter = 0;
-  bool isDartTheme = false;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,9 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(title: Text("Contador Flutter")),
       body: Center(
         child: Switch(
-          value: isDartTheme,
+          value: AppController.instance.isDartTheme,
           onChanged: (value) {
-            setState(() {
-              isDartTheme = value;
-            });
+            AppController.instance.changeTheme();
           },
         ),
       ),
