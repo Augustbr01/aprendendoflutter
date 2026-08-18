@@ -14,14 +14,24 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GestureDetector(
-        child: Text("Contador: $counter"),
-        onTap: () {
-          setState(() {
-            counter++;
-          });
-        },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Contador Flutter"),
+      ),
+      body: Center(
+        child: GestureDetector(
+          child: Text(
+            "Contador: $counter", 
+            style: TextStyle(
+                fontSize: 30.0
+              ),
+          ),
+          onTap: () {
+            setState(() {
+              counter++;
+            });
+          },
+        ),
       ),
     );
   }
