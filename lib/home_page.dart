@@ -18,19 +18,16 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Contador Flutter"),
       ),
-      body: Center(
-        child: GestureDetector(
-          child: Text(
-            "Contador: $counter", 
-            style: TextStyle(
-                fontSize: 30.0
-              ),
+      body: Container(
+        height: 100,
+        width: 100,
+        color: Colors.black,
+        child: Center(
+          child: Container(
+            height: 50, 
+            width: 50, 
+            color: Colors.white,
           ),
-          onTap: () {
-            setState(() {
-              counter++;
-            });
-          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
