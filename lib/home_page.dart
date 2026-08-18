@@ -11,23 +11,20 @@ class HomePage extends StatefulWidget {
 
 class HomePageState extends State<HomePage> {
   int counter = 0;
+  bool isDartTheme = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Contador Flutter"),
-      ),
-      body: Container(
-        height: 100,
-        width: 100,
-        color: Colors.black,
-        child: Center(
-          child: Container(
-            height: 50, 
-            width: 50, 
-            color: Colors.white,
-          ),
+      appBar: AppBar(title: Text("Contador Flutter")),
+      body: Center(
+        child: Switch(
+          value: isDartTheme,
+          onChanged: (value) {
+            setState(() {
+              isDartTheme = value;
+            });
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -35,8 +32,9 @@ class HomePageState extends State<HomePage> {
         onPressed: () {
           setState(() {
             counter++;
-        });
-      }),
+          });
+        },
+      ),
     );
   }
 }
