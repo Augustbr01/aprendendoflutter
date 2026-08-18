@@ -1,3 +1,4 @@
+import 'package:aprendendoflutter/app_controller.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,19 +16,13 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Contador Flutter"),
-      ),
-      body: Container(
-        height: 100,
-        width: 100,
-        color: Colors.black,
-        child: Center(
-          child: Container(
-            height: 50, 
-            width: 50, 
-            color: Colors.white,
-          ),
+      appBar: AppBar(title: Text("Contador Flutter")),
+      body: Center(
+        child: Switch(
+          value: AppController.instance.isDartTheme,
+          onChanged: (value) {
+            AppController.instance.changeTheme();
+          },
         ),
       ),
       floatingActionButton: FloatingActionButton(
@@ -35,8 +30,9 @@ class HomePageState extends State<HomePage> {
         onPressed: () {
           setState(() {
             counter++;
-        });
-      }),
+          });
+        },
+      ),
     );
   }
 }
